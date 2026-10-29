@@ -1,0 +1,40 @@
+# Environment and Secrets (CRITICAL)
+.env
+*.env
+*.env.*
+awe/.env
+awe-experiment/awe/.env
+*.key
+*.pem
+*.secret
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Large third-party sub-repositories
+xbow-validation-benchmarks/
+xbow-benchmarks/
+AWE/
+awe-experiment/awe/
+awe-experiment/xbow-validation-benchmarks/
+
+# Temporary test scripts
+test_*.py
+fix_*.py
+check_*.py
+update_*.py
+list_*.py
+register_*.py
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

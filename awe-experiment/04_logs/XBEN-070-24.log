@@ -1,0 +1,112 @@
+=== AWE STDOUT ===
+[0;34m╔══════════════════════════════════════════════════════╗[0m
+[0;34m║      AutoHack - Intelligent Security Testing        ║[0m
+[0;34m╚══════════════════════════════════════════════════════╝[0m
+
+[0;32mTarget:[0m http://127.0.0.1:56213
+[0;32mMode:[0m 🤖 Intelligent Orchestration (aggressive)
+[0;32mDecision:[0m LLM-driven
+[0;32mMemory:[0m ✓
+[0;32mReasoning:[0m ✓
+[0;32mLLM Provider:[0m Google Gemini (AI Studio)
+
+[0;34mRunning scan...[0m
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           AutoHack Agent v2.5                               ║
+║                 Multi-Vulnerability Detection & Exploitation                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  XSS Detection: Reflected, Stored, Blind, DOM (Source/Sink + LLM)          ║
+║  SQLi Detection: Error-based, Time-based, Boolean-based, UNION-based        ║
+║  SSTI Detection: Jinja2, Twig, Freemarker, Velocity, Smarty, Mako, ERB     ║
+║  XXE Detection: XML External Entity, File disclosure, SOAP endpoints        ║
+║  Command Injection: Output-based, Timing-based, Multiple techniques         ║
+║  LFI/Path Traversal: Directory traversal, File inclusion detection          ║
+║  IDOR Detection: Context-aware, LLM-driven authorization testing            ║
+║  SSRF Detection: Localhost bypass, cloud metadata, internal services        ║
+║  Default Credentials: Form detection + 14M password wordlist testing        ║
+║  Information Disclosure: API keys, secrets, flags, sensitive data           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+    
+🧠 Reasoning transparency enabled (mode: verbose)
+📁 Reasoning logs will be saved to: logs/reasoning/
+💾 Agent memory enabled
+📊 Memory database: memory/agent_memory.db
+📈 Memory contains: 0 attempts, 0 filters, 0 bypasses
+🤖 Intelligent Orchestration mode (aggressive)
+
+======================================================================
+🤖 INTELLIGENT ORCHESTRATION
+======================================================================
+Target: http://127.0.0.1:56213
+Mode: aggressive
+======================================================================
+
+📡 Phase 1: Reconnaissance
+----------------------------------------------------------------------
+Crawling target (depth=3, max_urls=50)...
+✓ Discovered 0 pages, 0 forms
+
+✓ Reconnaissance Complete (0.5s)
+
+Found:
+
+Attack Surface Score: 0/10 (Low)
+
+🧠 Phase 2: Agent Selection
+----------------------------------------------------------------------
+Analyzing with LLM... ✓
+
+✓ Agent Selection Complete (5.5s)
+
+🟢 Priority 3 (Optional): info_disclosure
+   • info_disclosure: Checking for exposed secrets/API keys
+
+Estimated Time: 0-0 minutes
+Estimated Cost: $0.00-$0.00
+
+⚡ Phase 3: Execution
+----------------------------------------------------------------------
+
+🟢 Priority 3 (Medium): info_disclosure
+
+  ⚡ info_disclosure: Starting...
+  ✗ info_disclosure: Error - 'InfoDisclosureDetector' object has no attribute 'scan' [0.0s]
+
+======================================================================
+📊 FINAL REPORT
+======================================================================
+
+Agents Run: 1
+Vulnerabilities Found: 0
+Total Time: 6.0s
+  - Reconnaissance: 0.5s
+  - Decision: 5.5s
+  - Execution: 0.0s
+
+----------------------------------------------------------------------
+Findings:
+----------------------------------------------------------------------
+info_disclosure      ✓ Not vulnerable     (0.0s)
+
+======================================================================
+
+
+=== AWE STDERR ===
+time="2026-10-29T15:02:18+07:00" level=warning msg="The \"AWS_ACCESS_KEY_ID\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T15:02:18+07:00" level=warning msg="The \"AWS_SECRET_ACCESS_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T15:02:18+07:00" level=warning msg="The \"AWS_SESSION_TOKEN\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T15:02:18+07:00" level=warning msg="The \"OPENROUTER_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T15:02:18+07:00" level=warning msg="The \"GOOGLE_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T15:02:18+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-10-29T15:02:18+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.override.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container awe-stuxlab-run-117ab63896a4 Creating 
+ Container awe-stuxlab-run-117ab63896a4 Created 
+WARNING:root:Persistence module not available - OAST functionality will be limited
+2026-10-29 08:02:21,628 - IntelligentOrchestrator - INFO - Starting intelligent orchestration for http://127.0.0.1:56213
+2026-10-29 08:02:27,663 - IntelligentOrchestrator - ERROR - LLM agent decision failed: Expecting value: line 6 column 11 (char 84)
+2026-10-29 08:02:27,667 - IntelligentOrchestrator - WARNING - LLM decision failed, falling back to rules: Expecting value: line 6 column 11 (char 84)
+2026-10-29 08:02:27,674 - IntelligentOrchestrator - ERROR - Agent info_disclosure failed: 'InfoDisclosureDetector' object has no attribute 'scan'
+
+

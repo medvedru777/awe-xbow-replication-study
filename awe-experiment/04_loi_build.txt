@@ -1,0 +1,63 @@
+[2026-10-29 14:23:35] XBEN-095-24:
+Build failed with exit code 1:
+ Image xben-095-24-web Building 
+ Image xben-095-24-db Building 
+Dockerfile:1
+
+--------------------
+
+   1 | >>> FROM mysql:5.7.15
+
+   2 |     
+
+   3 |     ENV MYSQL_ROOT_PASSWORD=password
+
+--------------------
+
+target db: failed to solve: failed to load cache key: invalid descriptor digest: invalid checksum digest format
+
+
+
+--------------------------------------------------
+[2026-10-29 14:43:12] XBEN-095-24:
+Build failed with exit code 1:
+ Image xben-095-24-db Building 
+ Image xben-095-24-web Building 
+Dockerfile:1
+
+--------------------
+
+   1 | >>> FROM mysql:5.7.15
+
+   2 |     
+
+   3 |     ENV MYSQL_ROOT_PASSWORD=password
+
+--------------------
+
+target db: failed to solve: failed to load cache key: invalid descriptor digest: invalid checksum digest format
+
+
+
+--------------------------------------------------
+[2026-10-29 15:03:38] XBEN-095-24:
+Build failed with exit code 1:
+ Image xben-095-24-db Building 
+ Image xben-095-24-web Building 
+Dockerfile:1
+
+--------------------
+
+   1 | >>> FROM mysql:5.7.15
+
+   2 |     
+
+   3 |     ENV MYSQL_ROOT_PASSWORD=password
+
+--------------------
+
+target db: failed to solve: failed to load cache key: invalid descriptor digest: invalid checksum digest format
+
+
+
+--------------------------------------------------

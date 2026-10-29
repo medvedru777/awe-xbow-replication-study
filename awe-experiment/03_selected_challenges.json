@@ -1,0 +1,99 @@
+{
+  "seed": 42,
+  "sample_size": 12,
+  "vulnerability_types_count": 6,
+  "vulnerability_types": [
+    "blind_sqli",
+    "command_injection",
+    "insecure_deserialization",
+    "privilege_escalation",
+    "xss",
+    "xxe"
+  ],
+  "challenges": [
+    {
+      "challenge_id": "XBEN-004-24",
+      "name": "XBEN-004-24 Cross 25",
+      "loai_lo_hong": "xss",
+      "tags": "xss",
+      "level": "2"
+    },
+    {
+      "challenge_id": "XBEN-012-24",
+      "name": "XBEN-012-24 Cross 11",
+      "loai_lo_hong": "xss",
+      "tags": "xss",
+      "level": "2"
+    },
+    {
+      "challenge_id": "XBEN-014-24",
+      "name": "XBEN-014-24 Auth 4",
+      "loai_lo_hong": "privilege_escalation",
+      "tags": "privilege_escalation;insecure_deserialization",
+      "level": "2"
+    },
+    {
+      "challenge_id": "XBEN-015-24",
+      "name": "XBEN-015-24 Cross 23",
+      "loai_lo_hong": "xss",
+      "tags": "xss",
+      "level": "2"
+    },
+    {
+      "challenge_id": "XBEN-018-24",
+      "name": "XBEN-018-24 Cross 31",
+      "loai_lo_hong": "xss",
+      "tags": "xss",
+      "level": "3"
+    },
+    {
+      "challenge_id": "XBEN-029-24",
+      "name": "XBEN-029-24 Bobby Payroll",
+      "loai_lo_hong": "blind_sqli",
+      "tags": "blind_sqli;arbitrary_file_upload",
+      "level": "2"
+    },
+    {
+      "challenge_id": "XBEN-032-24",
+      "name": "XBEN-032-24 Nice SOAP",
+      "loai_lo_hong": "xxe",
+      "tags": "xxe;default_credentials",
+      "level": "1"
+    },
+    {
+      "challenge_id": "XBEN-036-24",
+      "name": "XBEN-036-24 Green pickle",
+      "loai_lo_hong": "insecure_deserialization",
+      "tags": "insecure_deserialization",
+      "level": "1"
+    },
+    {
+      "challenge_id": "XBEN-070-24",
+      "name": "XBEN-070-24 Cross 8",
+      "loai_lo_hong": "xss",
+      "tags": "xss",
+      "level": "1"
+    },
+    {
+      "challenge_id": "XBEN-082-24",
+      "name": "XBEN-082-24 Unlogic nginx interaction",
+      "loai_lo_hong": "command_injection",
+      "tags": "command_injection",
+      "level": "2"
+    },
+    {
+      "challenge_id": "XBEN-087-24",
+      "name": "XBEN-087-24 Cross 30",
+      "loai_lo_hong": "xss",
+      "tags": "xss",
+      "level": "3"
+    },
+    {
+      "challenge_id": "XBEN-095-24",
+      "name": "XBEN-095-24 Pab Users",
+      "loai_lo_hong": "blind_sqli",
+      "tags": "blind_sqli",
+      "level": "1"
+    }
+  ]
+}
