@@ -1,0 +1,164 @@
+=== AWE PHA 3 STDOUT ===
+[0;34m╔══════════════════════════════════════════════════════╗[0m
+[0;34m║      AutoHack - Intelligent Security Testing        ║[0m
+[0;34m╚══════════════════════════════════════════════════════╝[0m
+
+[0;32mTarget:[0m http://host.docker.internal:49224
+[0;32mMode:[0m 🤖 Intelligent Orchestration (aggressive)
+[0;32mDecision:[0m LLM-driven
+[0;32mMemory:[0m ✓
+[0;32mReasoning:[0m ✓
+[0;32mLLM Provider:[0m Groq Cloud (openai/gpt-oss-120b)
+
+[0;34mRunning scan...[0m
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           AutoHack Agent v2.5                               ║
+║                 Multi-Vulnerability Detection & Exploitation                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  XSS Detection: Reflected, Stored, Blind, DOM (Source/Sink + LLM)          ║
+║  SQLi Detection: Error-based, Time-based, Boolean-based, UNION-based        ║
+║  SSTI Detection: Jinja2, Twig, Freemarker, Velocity, Smarty, Mako, ERB     ║
+║  XXE Detection: XML External Entity, File disclosure, SOAP endpoints        ║
+║  Command Injection: Output-based, Timing-based, Multiple techniques         ║
+║  LFI/Path Traversal: Directory traversal, File inclusion detection          ║
+║  IDOR Detection: Context-aware, LLM-driven authorization testing            ║
+║  SSRF Detection: Localhost bypass, cloud metadata, internal services        ║
+║  Default Credentials: Form detection + 14M password wordlist testing        ║
+║  Information Disclosure: API keys, secrets, flags, sensitive data           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+    
+🧠 Reasoning transparency enabled (mode: verbose)
+📁 Reasoning logs will be saved to: logs/reasoning/
+💾 Agent memory enabled
+📊 Memory database: memory/agent_memory.db
+📈 Memory contains: 0 attempts, 0 filters, 0 bypasses
+🤖 Intelligent Orchestration mode (aggressive)
+
+======================================================================
+🤖 INTELLIGENT ORCHESTRATION
+======================================================================
+Target: http://host.docker.internal:49224
+Mode: aggressive
+======================================================================
+
+📡 Phase 1: Reconnaissance
+----------------------------------------------------------------------
+Crawling target (depth=3, max_urls=50)...
+✓ Discovered 1 pages, 0 forms
+
+✓ Reconnaissance Complete (0.8s)
+
+Found:
+  ✓ 1 file upload form(s) → Will test: XXE, Arbitrary Upload
+  ✓ 1 parameter(s) with user input → Will test: XSS, SQLi
+  ✓ 1 file-related parameter(s) → Will test: LFI
+
+Attack Surface Score: 0/10 (Low)
+
+🧠 Phase 2: Agent Selection
+----------------------------------------------------------------------
+Analyzing with LLM... ✓
+
+✓ Agent Selection Complete (2.4s)
+
+🔴 Priority 1 (Must Run): lfi, command_injection
+   • lfi: File upload endpoint is the only interaction point; path traversal or inclusion via uploaded files is highly probable.
+   • command_injection: Uploaded files may be processed or executed on the server, making command injection a high‑impact vector.
+
+🟡 Priority 2 (Should Run): ssti
+   • ssti: If the application renders uploaded content using a template engine, SSTI could be exploitable; testing after LFI/command injection is logical.
+
+🟢 Priority 3 (Optional): info_disclosure
+   • info_disclosure: Even without auth, the server may leak configuration files or secrets via the upload mechanism.
+
+⚪ Skipping: xss, sqli, xxe, idor, default_credentials
+
+Estimated Time: 3-5 minutes
+Estimated Cost: $0.50-1.00
+
+⚡ Phase 3: Execution
+----------------------------------------------------------------------
+
+🔴 Priority 1 (Critical): lfi, command_injection
+
+  ⚡ lfi: Starting...
+  ✗ lfi: Error - 'LFIDetector' object has no attribute 'test_url' [0.0s]
+
+  ⚡ command_injection: Starting...
+  ✓ command_injection: Not vulnerable [0.2s]
+
+🟡 Priority 2 (High): ssti
+
+  ⚡ ssti: Starting...
+
+======================================================================
+SSTI TESTING: q
+======================================================================
+
+📍 PHASE 1: Rule-Based Detection
+----------------------------------------------------------------------
+  Testing probe: {{'django'|upper}}
+  Testing probe: {{7*7}}
+  Testing probe: {{7*'7'}}
+  Testing probe: ${7*7}
+  Testing probe: #{7*7}
+  Testing probe: #set($x=7*7)$x
+  Testing probe: {7*7}
+  Testing probe: ${7*7}
+  Testing probe: <%= 7*7 %>
+  Testing probe: [[${7*7}]]
+  ❌ No template engine detected with rule-based probes
+  Total failures: 10
+  ✓ ssti: Not vulnerable [0.0s]
+
+🟢 Priority 3 (Medium): info_disclosure
+
+  ⚡ info_disclosure: Starting...
+  ✓ info_disclosure: Not vulnerable [0.1s]
+
+======================================================================
+📊 FINAL REPORT
+======================================================================
+
+Agents Run: 4
+Vulnerabilities Found: 0
+Total Time: 3.6s
+  - Reconnaissance: 0.8s
+  - Decision: 2.4s
+  - Execution: 0.3s
+
+----------------------------------------------------------------------
+Findings:
+----------------------------------------------------------------------
+lfi                  ✓ Not vulnerable     (0.0s)
+command_injection    ✓ Not vulnerable     (0.2s)
+ssti                 ✓ Not vulnerable     (0.0s)
+info_disclosure      ✓ Not vulnerable     (0.1s)
+
+======================================================================
+
+=== AWE PHA 3 STDERR ===
+time="2026-10-30T22:41:01+07:00" level=warning msg="The \"AWS_ACCESS_KEY_ID\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:41:01+07:00" level=warning msg="The \"AWS_SECRET_ACCESS_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:41:01+07:00" level=warning msg="The \"AWS_SESSION_TOKEN\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:41:01+07:00" level=warning msg="The \"OPENROUTER_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:41:01+07:00" level=warning msg="The \"GOOGLE_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:41:01+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-10-30T22:41:01+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.override.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container awe-stuxlab-run-847e1606923a Creating 
+ Container awe-stuxlab-run-847e1606923a Created 
+WARNING:root:Persistence module not available - OAST functionality will be limited
+2026-10-30 15:41:02,947 - IntelligentOrchestrator - INFO - Starting intelligent orchestration for http://host.docker.internal:49224
+2026-10-30 15:41:06,197 - IntelligentOrchestrator - ERROR - Agent lfi failed: 'LFIDetector' object has no attribute 'test_url'
+2026-10-30 15:41:06,367 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/api/set?url=http://flask_api:8081/script "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,382 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/app "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,424 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224 "HTTP/1.1 200 OK"
+2026-10-30 15:41:06,441 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/secret.txt "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,462 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/flag.txt "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,481 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/.env "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,500 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/robots.txt "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,518 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:41:06,535 - httpx - INFO - HTTP Request: GET http://host.docker.internal:49224/api "HTTP/1.1 404 Not Found"
+

